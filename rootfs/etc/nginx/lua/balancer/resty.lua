@@ -2,7 +2,7 @@ local util = require("util")
 
 local string_format = string.format
 local ngx_log = ngx.log
-local INFO = ngx.INFO
+local ERR = ngx.ERR
 local setmetatable = setmetatable
 
 local _M = {}
@@ -28,7 +28,7 @@ function _M.sync(self, backend)
     return
   end
 
-  ngx_log(ngx_log, string_format("[%s] nodes have changed for backend %s", self.name, backend.name))
+  ngx_log(ERR, string_format("[%s] nodes have changed for backend %s", self.name, backend.name))
 
   self.instance:reinit(nodes)
 end
