@@ -28,7 +28,7 @@ function _M.sync(self, backend)
     return
   end
 
-  ngx_log(INFO, string_format("[%s] nodes have changed for backend %s", self.name, backend.name))
+  ngx_log(ngx_log, string_format("[%s] nodes have changed for backend %s", self.name, backend.name))
 
   self.instance:reinit(nodes)
 end
